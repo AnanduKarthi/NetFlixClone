@@ -3,7 +3,7 @@ import type { Movie } from "@/type";
 
 const MovieCard = ({ movie, ind }: { movie: Movie; ind: number }) => {
   return (
-    <Card className="group overflow-hidden cursor-pointer w-48 md:w-56 lg:w-64 h-56 lg:h-full hover:shadow-xl outline-blue-200 p-0 border-0 rounded-sm  ">
+    <Card className="group overflow-hidden cursor-pointer w-36 hover:shadow-xl outline-blue-200 p-0 border-0 rounded-sm  ">
       <div
         className="absolute w-8 h-8 text-black font-extrabold text-6xl leading-none opacity-90 z-10 pointer-events-none  
         "

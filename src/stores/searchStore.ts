@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-import MOVIE_DATA from "../data/mockData.json";
 import type { Movie } from "@/type";
 
 type SearchState = {
@@ -14,7 +13,7 @@ type SearchState = {
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 const DEBAUNCE_DELAY = 500; // milliseconds
 
-export const useSearchStore = create<SearchState>((set) => ({
+export const useSearchStore = create<SearchState>((set, get) => ({
   query: "",
   results: [] as Movie[],
   setQuery: (q: string) => set({ query: q }),
@@ -36,7 +35,7 @@ export const useSearchStore = create<SearchState>((set) => ({
     }
 
     debounceTimer = setTimeout(() => {
-      const results = (MOVIE_DATA.results as Movie[]).filter((movie: Movie) =>
+      const results = (get().results as Movie[]).filter((movie: Movie) =>
         movie.title.toLowerCase().includes(qTrim.toLowerCase()),
       ) as Movie[];
       set({ results });

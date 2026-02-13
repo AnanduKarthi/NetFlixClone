@@ -8,13 +8,18 @@ export const Route = createFileRoute("/search")({
 });
 
 function SearchComponent() {
-  const { movie } = Route.useSearch();
+  const { movie }: { movie: string } = Route.useSearch();
   const results = useSearchStore((state) => state.results);
   console.log("search", movie);
   return (
     <div>
       {results.length > 0 ? (
         <div className="p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div aria-live="polite" aria-atomic="true" className="sr-only">
+            {movie
+              ? `${results.length} results for ${movie}`
+              : `${results.length} results}`}
+          </div>
           {results.map((movie, ind) => (
             <MovieCard key={movie.id} movie={movie} ind={ind} />
           ))}

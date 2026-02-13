@@ -7,41 +7,17 @@ type SearchState = {
   results: Movie[];
   setQuery: (q: string) => void;
   setResults: (r: Movie[]) => void;
-  performSearch: (q: string) => void;
+  baseMovies: Movie[];
+  setBaseMovies: (m: Movie[]) => void;
 };
 
-let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-const DEBAUNCE_DELAY = 500; // milliseconds
-
-export const useSearchStore = create<SearchState>((set, get) => ({
+export const useSearchStore = create<SearchState>((set) => ({
   query: "",
   results: [] as Movie[],
   setQuery: (q: string) => set({ query: q }),
   setResults: (r: Movie[]) => set({ results: r }),
-  performSearch: (q: string) => {
-    // update query immediately so UI can reflect the current text
-    set({ query: q });
-
-    const qTrim = q.trim();
-
-    if (debounceTimer) {
-      clearTimeout(debounceTimer);
-      debounceTimer = null;
-    }
-
-    if (qTrim === "") {
-      set({ results: [] });
-      return;
-    }
-
-    debounceTimer = setTimeout(() => {
-      const results = (get().results as Movie[]).filter((movie: Movie) =>
-        movie.title.toLowerCase().includes(qTrim.toLowerCase()),
-      ) as Movie[];
-      set({ results });
-      debounceTimer = null;
-    }, DEBAUNCE_DELAY);
-  },
+  baseMovies: [] as Movie[],
+  setBaseMovies: (m: Movie[]) => set({ baseMovies: m }),
 }));
 
 export default useSearchStore;

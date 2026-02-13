@@ -7,3 +7,10 @@ export type Movie = {
 export type MovieListProps = {
   movies: Movie[];
 };
+
+export interface TMDBResponse {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+}

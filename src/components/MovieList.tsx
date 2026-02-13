@@ -5,7 +5,7 @@ const MovieList = ({ movies }: MovieListProps) => {
   return (
     <div className="relative">
       <ul className="flex overflow-x-scroll overflow-y-visible no-scrollbars space-x-4 px-4 md:px-6 py-4 relative">
-        {movies.map((movie: Movie, index: number) => (
+        {movies?.map((movie: Movie, index: number) => (
           <li key={movie.id}>
             <MovieCard movie={movie} ind={index} />
           </li>

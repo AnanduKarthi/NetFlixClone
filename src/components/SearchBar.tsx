@@ -1,18 +1,21 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
 
-import { useSearchStore } from "../stores/searchStore";
 import { useNavigate } from "@tanstack/react-router";
+import performSearch from "@/lib/perfromSearch";
+import useSearchStore from "@/stores/searchStore";
+import useBaseMovieStore from "@/stores/moviesStore";
 
 const SearchBar = () => {
   const [show, setShow] = useState<boolean>(false);
-
   const navigate = useNavigate();
 
-  const performSearch = useSearchStore((state) => state.performSearch);
+  const baseMovies = useBaseMovieStore((state) => state.baseMovies);
+  const setResults = useSearchStore((state) => state.setResults);
 
   const searchQuery = (query: string) => {
-    performSearch(query);
+    const matchingTitles = performSearch(query, baseMovies);
+    setResults(matchingTitles.data);
     navigate({ to: "/search", search: { movie: query } });
   };
   const handleSearchQueryChange = (

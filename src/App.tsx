@@ -1,16 +1,25 @@
 import Hero from "./components/Hero";
 import TrendingNow from "./components/TrendingNow";
+import { usePopularMovies } from "./lib/usePopulerMoview";
 import "./App.css";
-import useSearchStore from "./stores/searchStore";
 
 function App() {
-  const results = useSearchStore((state) => state.results);
-  console.log("Search results in App component:", results);
+  const { movies, error, loading } = usePopularMovies();
+
+  if (loading) {
+    return <div className="text-white">Loading...</div>;
+  }
+  if (error) {
+    return <div className="text-red-500">Error: {error}</div>;
+  }
+  if (!movies) {
+    return <div className="text-red-500">No movies found.</div>;
+  }
   return (
     <main>
       <div className="min-h-screen bg-background text-foreground translation-colors duration-300">
         <Hero />
-        <TrendingNow />
+        <TrendingNow movies={movies} />
       </div>
     </main>
   );

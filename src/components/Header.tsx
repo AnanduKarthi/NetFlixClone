@@ -1,3 +1,10 @@
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
@@ -9,7 +16,18 @@ const Header = () => {
             REACTFLIX
           </h1>
         </div>
-        <SearchBar />
+
+        <div className="flex items-center gap-6">
+          <SignedOut>
+            <SignInButton />
+            <SignUpButton />
+          </SignedOut>
+          {/* Show the user button when the user is signed in */}
+          <SignedIn>
+            <SearchBar />
+            <UserButton />
+          </SignedIn>
+        </div>
       </div>
     </header>
   );

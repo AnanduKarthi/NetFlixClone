@@ -7,6 +7,7 @@ const Hero = () => {
         src={heroBg}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
+        fetchPriority="high"
       />
 
       <div className="absolute inset-0 bg-linear-to-br from-black/95 via-black/70 to-black/95 pointer-events-none" />

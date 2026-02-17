@@ -7,10 +7,11 @@ import performSearch from "@/lib/perfromSearch";
 const API_URL =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
 
+const token =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMjFiNjdjMTgwMzUxMWQxNTVmNDZhM2ZhZTA2ODYyYyIsIm5iZiI6MTc0ODYyOTkwNi4yNjcsInN1YiI6IjY4MzlmOTkyZGU4ZWNlOWQwZTNkMjIzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yKPIERgR6XXWDJvgWJIqIoGDVRL1HDZIJCNyZdY6uWs";
 export const Route = createFileRoute("/search")({
   component: SearchComponent,
   loader: async () => {
-    const token = import.meta.env.VITE_TMDB_AUTH_TOKEN;
     const response = await fetch(API_URL, {
       headers: {
         accept: "application/json",

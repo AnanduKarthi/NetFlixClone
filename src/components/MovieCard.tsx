@@ -23,6 +23,7 @@ const MovieCard = ({ movie, ind }: { movie: Movie; ind: number }) => {
             }
             alt={movie.title}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
       </Card>

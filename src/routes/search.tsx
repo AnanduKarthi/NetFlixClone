@@ -45,8 +45,8 @@ function SearchComponent() {
               ? `${results.length} results for ${movie}`
               : `${results.length} results}`}
           </div>
-          {results.map((movie, ind) => (
-            <MovieCard key={movie.id} movie={movie} ind={ind} />
+          {results.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
       ) : (

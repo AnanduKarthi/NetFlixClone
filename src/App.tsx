@@ -1,16 +1,17 @@
 import Hero from "./components/Hero";
-import TrendingNow from "./components/TrendingNow";
-import { usePopularMovies } from "./lib/usePopulerMoview";
+import TrendingNow from "./features/movies/components/TrendingNow";
+
 import "./App.css";
+import { usePopularMovies } from "./features/movies/hooks/usePopularMovie";
 
 function App() {
-  const { movies, error, loading } = usePopularMovies();
+  const { data: movies, isError, isLoading } = usePopularMovies();
 
-  if (loading) {
+  if (isLoading) {
     return <div className="text-white">Loading...</div>;
   }
-  if (error) {
-    return <div className="text-red-500">Error: {error}</div>;
+  if (isError) {
+    return <div className="text-red-500">Error: {isError}</div>;
   }
   if (!movies) {
     return <div className="text-red-500">No movies found.</div>;

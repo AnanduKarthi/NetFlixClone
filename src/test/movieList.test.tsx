@@ -1,4 +1,4 @@
-import MovieList from "@/components/MovieList";
+import MovieList from "@/features/movies/components/MovieList";
 import { render, screen } from "@testing-library/react";
 
 vi.mock("@/components/MovieCard", () => ({

@@ -9,6 +9,9 @@ export type MovieListProps = {
 };
 
 export interface TMDBResponse {
+  id: number;
+  title: string;
+  poster_path: string;
   page: number;
   results: Movie[];
   total_pages: number;

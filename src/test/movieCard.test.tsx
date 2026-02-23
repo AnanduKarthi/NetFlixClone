@@ -1,5 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import MovieCard from "@/components/MovieCard";
+import MovieCard from "@/features/movies/components/MovieCard";
 import type { Movie } from "@/type";
 
 const mockMovie: Movie = {

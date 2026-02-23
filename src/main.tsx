@@ -3,6 +3,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { StrictMode } from "react";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { QueryClientUtility } from "./config/QueryClientUtility";
 import "./App.css";
 
 // Set up a Router instance
@@ -32,9 +33,11 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-        <RouterProvider router={router} />
-      </ClerkProvider>
+      <QueryClientUtility>
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+          <RouterProvider router={router} />
+        </ClerkProvider>
+      </QueryClientUtility>
     </StrictMode>,
   );
 }

@@ -7,13 +7,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
       aria-label={`open details for ${movie.title}`}
       onClick={() => console.log("open details for", movie.title)}
     >
-      <Card className="group overflow-hidden cursor-pointer w-36 hover:shadow-xl outline-blue-200 p-0 border-0 rounded-sm  ">
-        {/* <div
-          className="absolute w-8 h-8 text-black font-extrabold text-6xl leading-none opacity-90 z-10 pointer-events-none  
-        "
-        >
-          {ind + 1}
-        </div> */}
+      <Card className="group overflow-hidden cursor-pointer w-36 lg:w-48 hover:shadow-xl outline-blue-200 p-0 border-0 rounded-sm  ">
         <div className="hover:scale-105 transition-all duration-300">
           <img
             src={

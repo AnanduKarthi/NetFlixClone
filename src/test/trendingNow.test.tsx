@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TrendingNow from "../components/TrendingNow";
+import TrendingNow from "../features/movies/components/TrendingNow";
 import type { Movie } from "@/type";
 
 // Mock MovieList

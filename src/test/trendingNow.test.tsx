@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TrendingNow from "../features/movies/components/TrendingNow";
-import type { Movie } from "@/type";
+import type { Movie } from "@/features/movies/type";
 
 // Mock MovieList
 vi.mock("../components/MovieList", () => ({

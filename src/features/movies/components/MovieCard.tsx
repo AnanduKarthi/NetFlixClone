@@ -1,11 +1,13 @@
 import { Card } from "@/components/ui/card";
-import type { Movie } from "@/type";
+import type { Movie } from "@/features/movies/type";
+import { useNavigate } from "@tanstack/react-router";
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
+  const navigate = useNavigate();
   return (
     <button
       aria-label={`open details for ${movie.title}`}
-      onClick={() => console.log("open details for", movie.title)}
+      onClick={() => navigate({ to: `/movie/${movie.id}` })}
     >
       <Card className="group overflow-hidden cursor-pointer w-36 lg:w-48 hover:shadow-xl outline-blue-200 p-0 border-0 rounded-sm  ">
         <div className="hover:scale-105 transition-all duration-300">

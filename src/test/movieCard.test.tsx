@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import MovieCard from "@/features/movies/components/MovieCard";
-import type { Movie } from "@/type";
+import type { Movie } from "@/features/movies/type";
 
 const mockMovie: Movie = {
   id: 1,

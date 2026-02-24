@@ -1,5 +1,5 @@
 import performSearch from "../lib/perfromSearch";
-import type { Movie } from "@/type";
+import type { Movie } from "@/features/movies/type";
 
 describe("performSearch", () => {
   const movies: Movie[] = [

@@ -1,5 +1,5 @@
 import MovieList from "./MovieList";
-import type { Movie } from "@/type";
+import type { Movie } from "@/features/movies/type";
 
 const TrendingNow = ({ movies }: { movies: Movie[] }) => {
   return (

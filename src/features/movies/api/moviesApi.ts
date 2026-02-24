@@ -1,5 +1,5 @@
 import { api } from "@/config/axiosConfig";
-import type { TMDBResponse } from "@/type";
+import type { TMDBResponse } from "@/features/movies/type";
 
 export const searchMoviesApi = async (query: string) => {
   const response = await api.get(
@@ -19,4 +19,12 @@ export const getPopularMoviesApi = async () => {
     throw new Error("Failed to fetch movies");
   }
   return response.data.results as TMDBResponse[];
+};
+
+export const getMovieDetailsApi = async (movieId: string) => {
+  const response = await api.get(`/movie/${movieId}?language=en-US`);
+  if (response.status !== 200) {
+    throw new Error("Failed to fetch movie details");
+  }
+  return response.data as TMDBResponse;
 };

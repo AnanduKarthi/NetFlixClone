@@ -1,4 +1,4 @@
-import type { Movie, MovieListProps } from "../../../type";
+import type { Movie, MovieListProps } from "../type";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ movies }: MovieListProps) => {

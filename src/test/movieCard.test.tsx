@@ -16,7 +16,7 @@ describe("MovieCard", () => {
   }));
 
   test("renders movie title and poster", () => {
-    render(<MovieCard movie={mockMovie} ind={0} />);
+    render(<MovieCard movie={mockMovie} />);
 
     const posterElement = screen.getByAltText(/Avatar/i);
     expect(posterElement).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe("MovieCard", () => {
   });
 
   test("renders placeholder image when poster_path is missing", () => {
-    render(<MovieCard movie={{ ...mockMovie, poster_path: "" }} ind={0} />);
+    render(<MovieCard movie={{ ...mockMovie, poster_path: "" }} />);
 
     const posterElement = screen.getByAltText(/Avatar/i);
     expect(posterElement).toBeInTheDocument();

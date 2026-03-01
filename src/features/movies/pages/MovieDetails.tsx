@@ -61,6 +61,7 @@ const MovieDetail: React.FC = () => {
             src={TMDB_BACKDROP_URL + movie.backdrop_path}
             alt={`${movie.title} backdrop`}
             className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+            loading="lazy"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-black/80" />
@@ -76,6 +77,7 @@ const MovieDetail: React.FC = () => {
                 onError={(e) => {
                   e.currentTarget.src = "/placeholder-movie.svg";
                 }}
+                loading="lazy"
               />
             </div>
 

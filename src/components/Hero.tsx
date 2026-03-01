@@ -1,17 +1,47 @@
-import heroBg from "../assets/hero-background.jpg";
-
 const Hero = () => {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden w-full bg-gradient-to-br from-black via-gray-900 to-black">
-      <img
-        src={heroBg}
+      {/* <img
+        src={
+          "https://res.cloudinary.com/anandu/image/upload/q_auto:good/hero-background_1_j0pifz.avif"
+        }
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
         fetchPriority="high"
-      />
-
+      /> */}
+      /
+      <picture>
+        <source
+          srcSet={
+            "https://res.cloudinary.com/anandu/image/upload/q_auto:low,w_640/hero-background_1_j0pifz.avif"
+          }
+          type="image/avif"
+          media="(max-width: 640px)"
+        />
+        <source
+          srcSet={
+            "https://res.cloudinary.com/anandu/image/upload/q_auto:good,w_1024/hero-background_1_j0pifz.avif"
+          }
+          type="image/avif"
+          media="(max-width: 1024px)"
+        />
+        <source
+          srcSet={
+            "https://res.cloudinary.com/anandu/image/upload/q_auto:best/hero-background_1_j0pifz.avif"
+          }
+          type="image/avif"
+          media="(min-width: 1025px)"
+        />
+        <img
+          src={
+            "https://res.cloudinary.com/anandu/image/upload/q_auto:good/hero-background_1_j0pifz.avif"
+          }
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+        />
+      </picture>
       <div className="absolute inset-0 bg-linear-to-br from-black/95 via-black/70 to-black/95 pointer-events-none" />
-
       <div className="relative z-10 text-center max-w-150 sm:px-3 md:px-6 flex flex-col items-center w-full">
         <div className="text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">

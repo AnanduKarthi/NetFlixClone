@@ -10,6 +10,7 @@ const MoviePlayer = ({ movie }: MoviePlayerProps) => {
       <video
         aria-label="Play movie"
         poster={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+        preload="metadata"
         className="w-full h-screen object-cover"
         controls
       >

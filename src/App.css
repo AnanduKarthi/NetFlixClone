@@ -99,6 +99,16 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  overflow-y: scroll; /* Reserve vertical scrollbar space to avoid layout shift between pages */
+  scrollbar-width: none; /* Firefox: hide scrollbar but keep scrollability */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge: hide scrollbar but keep scrollability */
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -108,6 +118,19 @@ body {
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+/* Hide scrollbars visually while keeping scrollability */
+.no-scrollbars {
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbars::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
 }
 
 /* =========================

@@ -10,25 +10,31 @@ import { Link } from "@tanstack/react-router";
 
 const Header = () => {
   return (
-    <header className="relative top-0 left-0 right-0 z-100 py-5 ">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-neutral-800/80 bg-black/80 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6 md:py-5">
         <div className="shrink-0">
           <Link to="/">
-            <h1 className="text-xl lg:text-4xl font-bold text-red-600">
+            <h1 className="text-xl font-bold tracking-tight text-red-600 md:text-3xl lg:text-4xl">
               REACTFLIX
             </h1>
           </Link>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex min-h-[40px] items-center gap-4 md:gap-6">
           <SignedOut>
-            <SignInButton />
-            <SignUpButton />
+            <div className="flex items-center gap-3 text-sm">
+              <SignInButton />
+              <SignUpButton />
+            </div>
           </SignedOut>
-          {/* Show the user button when the user is signed in */}
+
           <SignedIn>
-            <SearchBar />
-            <UserButton />
+            <div className="flex items-center gap-4 md:gap-6">
+              <div className="hidden md:block">
+                <SearchBar />
+              </div>
+              <UserButton />
+            </div>
           </SignedIn>
         </div>
       </div>

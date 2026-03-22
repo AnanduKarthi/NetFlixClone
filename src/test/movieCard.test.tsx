@@ -2,6 +2,10 @@ import { screen, render } from "@testing-library/react";
 import MovieCard from "@/features/movies/components/MovieCard";
 import type { Movie } from "@/features/movies/type";
 
+vi.mock("@tanstack/react-router", () => ({
+  useNavigate: () => vi.fn(),
+}));
+
 const mockMovie: Movie = {
   id: 1,
   title: "Avatar",

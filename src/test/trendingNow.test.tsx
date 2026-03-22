@@ -3,7 +3,7 @@ import TrendingNow from "../features/movies/components/TrendingNow";
 import type { Movie } from "@/features/movies/type";
 
 // Mock MovieList
-vi.mock("../components/MovieList", () => ({
+vi.mock("@/features/movies/components/MovieList", () => ({
   default: ({ movies }: { movies: Movie[] }) => (
     <div data-testid="movie-list">
       MovieList rendered with {movies.length} movies

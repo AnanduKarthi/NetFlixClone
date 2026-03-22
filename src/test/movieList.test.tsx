@@ -1,7 +1,11 @@
 import MovieList from "@/features/movies/components/MovieList";
 import { render, screen } from "@testing-library/react";
 
-vi.mock("@/components/MovieCard", () => ({
+vi.mock("@tanstack/react-router", () => ({
+  useNavigate: () => vi.fn(),
+}));
+
+vi.mock("@/features/movies/components/MovieCard", () => ({
   default: ({ movie }: { movie: { title: string } }) => (
     <div data-testid="movie-card">{movie.title}</div>
   ),
